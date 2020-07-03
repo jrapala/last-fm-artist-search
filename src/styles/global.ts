@@ -20,7 +20,8 @@ export const GlobalStyle = createGlobalStyle`
 		-moz-osx-font-smoothing: grayscale;
 	}
 	main {
-		width: 90%;
+		width: 100%;
+		height: 100vh;
 		margin: 0 auto;
 	}
 	h1 {

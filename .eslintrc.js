@@ -35,6 +35,7 @@ module.exports = {
 		],
 		"react/prop-types": 0,
 		"import/no-named-as-default-member": 0,
+		"react/display-name": 0,
 	},
 	overrides: [
 		{
