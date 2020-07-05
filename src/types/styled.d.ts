@@ -15,5 +15,13 @@ declare module "styled-components" {
 			bold: number
 			regular: number
 		}
+		typeScale: {
+			h1: string
+			h2: string
+			h3: string
+			h4: string
+			h5: string
+			p: string
+		}
 	}
 }

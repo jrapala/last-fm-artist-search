@@ -1,14 +1,11 @@
 import { DefaultTheme } from "styled-components/native"
 import { neutral, orange, yellow } from "./colors"
-import { fontWeight } from "./typography"
+import { fontWeight, typeScale } from "./typography"
 
 export const lightTheme: DefaultTheme = {
 	borderColor: neutral[200],
 	buttonBorderRadius: "40px",
-	fontWeight: {
-		bold: fontWeight.bold,
-		regular: fontWeight.regular,
-	},
+	fontWeight: fontWeight,
 	panelBorderRadius: "8px",
 	primaryBackgroundColor: neutral[100],
 	secondaryBackgroundColor: neutral[200],
@@ -16,4 +13,5 @@ export const lightTheme: DefaultTheme = {
 	starColor: yellow[500],
 	textColorOnBackgroundColor: neutral[900],
 	textColorOnSecondaryColor: neutral[100],
+	typeScale: typeScale,
 }
