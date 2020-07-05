@@ -45,4 +45,7 @@ export const GlobalStyle = createGlobalStyle`
 	a {
 		color: ${orange[500]}
 	}
+	ul {
+		list-style-type: none;
+	}
 `

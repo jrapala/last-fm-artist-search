@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 interface Props {
+	componentSize?: "large" | "small"
 	componentStyle?: "primary" | "secondary"
 	type?: "button" | "submit" | "reset"
 	onClick?: () => void
@@ -9,12 +10,14 @@ interface Props {
 }
 
 interface ButtonProps {
+	componentSize?: "large" | "small"
 	componentStyle?: "primary" | "secondary"
 }
 
 const Button: React.FC<Props> = ({
 	children,
 	componentStyle = "primary",
+	componentSize = "large",
 	type = "button",
 	onClick = (): void => {},
 	disabled = false,
@@ -22,6 +25,7 @@ const Button: React.FC<Props> = ({
 	return (
 		<StyledButton
 			type={type}
+			componentSize={componentSize}
 			componentStyle={componentStyle}
 			onClick={onClick}
 			disabled={disabled}
@@ -48,7 +52,8 @@ export const StyledButton = styled.button<ButtonProps>`
 	font-weight: ${(props): number => props.theme.fontWeight.bold};
 	padding: 0.75em;
 	text-transform: uppercase;
-	width: 80%;
+	width: ${(props): string =>
+		props.componentSize === "large" ? "80%" : "20%"};
 	&:disabled {
 		opacity: 0.5;
 	}
