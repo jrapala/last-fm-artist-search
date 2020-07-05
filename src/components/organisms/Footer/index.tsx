@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
 	return (
 		<Container>
 			<p>Powered by</p>
-			<a href="https://www.last.fm/" target="_blank" rel="noreferrer">
+			<a href="https://www.last.fm/">
 				<LastFMLogo width="100%" />
 			</a>
 		</Container>
