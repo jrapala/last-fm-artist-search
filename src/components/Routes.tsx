@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { Redirect } from "react-router"
 import { renderRoutes } from "react-router-config"
 
+import { ROUTES } from "../constants"
 import { SessionContext } from "./SessionProvider"
 import LoginPage from "../pages/Login"
 import AuthCallbackPage from "../pages/AuthCallbackPage"
@@ -11,12 +12,12 @@ const publicRoutes = [
 	{
 		component: LoginPage,
 		exact: true,
-		path: "/login",
+		path: ROUTES.LOG_IN,
 	},
 	{
 		component: AuthCallbackPage,
 		exact: true,
-		path: "/auth",
+		path: ROUTES.AUTH,
 	},
 	{
 		component: (): JSX.Element => <Redirect to="/login" />,
@@ -28,7 +29,7 @@ const privateRoutes = [
 	{
 		component: SearchPage,
 		exact: true,
-		path: "/search",
+		path: ROUTES.SEARCH,
 	},
 	{
 		component: (): JSX.Element => <Redirect to="/search" />,

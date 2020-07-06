@@ -5,3 +5,10 @@ export const ARTIST_SEARCH_URL = `${API_BASE_URL}&method=artist.search&artist=`
 
 export const ACCESS_TOKEN_KEY = "last-fm-access-token"
 export const ACCESS_TOKEN_EXPIRATION = "last-fm-access-token-expiration"
+
+export const ROUTES = {
+	AUTH: "/auth",
+	FAVORITES: "/favorites",
+	LOG_IN: "/login",
+	SEARCH: "/search",
+}

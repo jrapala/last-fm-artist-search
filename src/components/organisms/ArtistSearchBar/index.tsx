@@ -27,11 +27,7 @@ const ArtistSearchBar: React.FC<Props> = ({ setSearchResults }) => {
 		<Form onSubmit={handleSubmit}>
 			<label>Search for an Artist:</label>
 			<input name="query" value={query} onChange={handleChangeQuery} />
-			<Button
-				type="submit"
-				componentSize="small"
-				disabled={query.length < 1}
-			>
+			<Button type="submit" disabled={query.length < 1}>
 				Search
 			</Button>
 		</Form>
@@ -41,21 +37,42 @@ const ArtistSearchBar: React.FC<Props> = ({ setSearchResults }) => {
 const Form = styled.form`
 	align-items: center;
 	display: flex;
+	flex-direction: column;
+	margin-top: 2em;
 
 	label {
-		flex-shrink: 0;
 		font-size: ${(props): string => props.theme.typeScale.h3};
 	}
 
 	input {
 		border-radius: ${(props): string => props.theme.panelBorderRadius};
-		flex: 2;
 		padding: 0.5rem;
-		margin-left: 1.5rem;
+		margin-top: 1rem;
 	}
 
 	button {
-		margin-left: 1.5rem;
+		margin-top: 1rem;
+	}
+
+	@media (min-width: 769px) {
+		flex-direction: row;
+		label {
+			flex-shrink: 0;
+			font-size: ${(props): string => props.theme.typeScale.h3};
+		}
+
+		input {
+			border-radius: ${(props): string => props.theme.panelBorderRadius};
+			flex: 2;
+			padding: 0.5rem;
+			margin-left: 1.5rem;
+			margin-top: 0;
+		}
+
+		button {
+			margin-left: 1.5rem;
+			margin-top: 0;
+		}
 	}
 `
 
