@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import BaseButton from "../BaseButton"
+
 interface Props {
 	componentSize?: "large" | "small"
 	componentStyle?: "primary" | "secondary"
@@ -35,7 +37,7 @@ const Button: React.FC<Props> = ({
 	)
 }
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledButton = styled(BaseButton)<ButtonProps>`
 	background-color: ${(props): string =>
 		props.componentStyle === "primary"
 			? props.theme.secondaryColor
@@ -47,17 +49,14 @@ export const StyledButton = styled.button<ButtonProps>`
 		props.componentStyle === "primary"
 			? props.theme.textColorOnSecondaryColor
 			: props.theme.textColorOnBackgroundColor};
-	cursor: pointer;
 	font-size: 1.125rem;
 	font-weight: ${(props): number => props.theme.fontWeight.bold};
-	padding: 0.75em;
+	padding: 0.75rem;
 	text-transform: uppercase;
 	width: ${(props): string =>
 		props.componentSize === "large" ? "80%" : "20%"};
-	&:disabled {
-		opacity: 0.5;
-	}
-	&:hover {
+
+	&:hover:not(:disabled) {
 		opacity: 0.8;
 	}
 `
