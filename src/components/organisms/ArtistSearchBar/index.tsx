@@ -50,12 +50,12 @@ const Form = styled.form`
 	input {
 		border-radius: ${(props): string => props.theme.panelBorderRadius};
 		flex: 2;
-		padding: 0.5em;
-		margin-left: 1.5em;
+		padding: 0.5rem;
+		margin-left: 1.5rem;
 	}
 
 	button {
-		margin-left: 1.5em;
+		margin-left: 1.5rem;
 	}
 `
 

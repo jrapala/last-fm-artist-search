@@ -59,7 +59,7 @@ const Content = styled.div`
 	flex: 1;
 `
 const LoadingText = styled.h1`
-	margin-top: 1em;
+	margin-top: 1rem;
 `
 
 export default AuthCallbackPage

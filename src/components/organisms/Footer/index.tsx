@@ -18,10 +18,10 @@ const Container = styled.footer`
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	padding-bottom: 0.5em;
+	padding-bottom: 0.5rem;
 
 	p {
-		margin-right: 0.5em;
+		margin-right: 0.5rem;
 	}
 
 	a {
