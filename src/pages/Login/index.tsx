@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { LOGIN_URL } from "../../constants"
-import Card from "../../components/atoms/Card"
+import Panel from "../../components/atoms/Panel"
 import Logo from "../../components/atoms/Logo"
 import Button from "../../components/atoms/Button"
 import Footer from "../../components/organisms/Footer"
@@ -15,11 +15,13 @@ const LoginPage: React.FC = () => {
 	return (
 		<PageContainer>
 			<Content>
-				<Card>
+				<Panel>
 					<Logo width={"50%"} />
 					<h1>Artist Finder</h1>
-					<Button onClick={redirectToLastFMLogin}>Log In</Button>
-				</Card>
+					<ButtonContainer>
+						<Button onClick={redirectToLastFMLogin}>Log In</Button>
+					</ButtonContainer>
+				</Panel>
 			</Content>
 			<Footer />
 		</PageContainer>
@@ -38,6 +40,11 @@ const Content = styled.div`
 	align-items: center;
 	display: flex;
 	flex: 1;
+`
+
+const ButtonContainer = styled.div`
+	display: flex;
+	width: 80%;
 `
 
 export default LoginPage

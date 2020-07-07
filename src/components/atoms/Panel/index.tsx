@@ -1,17 +1,18 @@
 import React from "react"
 import styled from "styled-components"
 
-const Card: React.FC = ({ children }) => {
-	return <CardContainer>{children}</CardContainer>
+const Panel: React.FC = ({ children }) => {
+	return <Container>{children}</Container>
 }
 
-const CardContainer = styled.div`
+const Container = styled.div`
 	align-items: center;
 	background-color: ${(props): string => props.theme.primaryBackgroundColor};
 	border-radius: ${(props): string => props.theme.panelBorderRadius};
+	box-shadow: ${(props): string => props.theme.panelBoxShadow};
 	display: flex;
 	flex-direction: column;
-	padding: 2.5em;
+	padding: 2rem;
 `
 
-export default Card
+export default Panel

@@ -38,7 +38,7 @@ const Form = styled.form`
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	margin-top: 2em;
+	margin: 2rem 0;
 
 	label {
 		font-size: ${(props): string => props.theme.typeScale.h3};

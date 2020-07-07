@@ -4,7 +4,7 @@ import { useHistory } from "react-router"
 
 import { ACCESS_TOKEN_KEY, ACCESS_TOKEN_EXPIRATION } from "../../constants"
 import { SessionContext } from "../../components/SessionProvider"
-import Card from "../../components/atoms/Card"
+import Panel from "../../components/atoms/Panel"
 import Logo from "../../components/atoms/Logo"
 import Footer from "../../components/organisms/Footer"
 
@@ -35,10 +35,10 @@ const AuthCallbackPage: React.FC = () => {
 	return (
 		<PageContainer>
 			<Content>
-				<Card>
+				<Panel>
 					<Logo width={"50%"} />
 					<LoadingText>Loading...</LoadingText>
-				</Card>
+				</Panel>
 			</Content>
 			<Footer />
 		</PageContainer>

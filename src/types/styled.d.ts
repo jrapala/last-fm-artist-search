@@ -5,6 +5,7 @@ declare module "styled-components" {
 		borderColor: string
 		buttonBorderRadius: string
 		panelBorderRadius: string
+		panelBoxShadow: string
 		primaryBackgroundColor: string
 		secondaryBackgroundColor: string
 		secondaryColor: string
