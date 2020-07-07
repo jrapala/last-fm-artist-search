@@ -28,5 +28,9 @@ export async function fetchArtistTopAlbums(id: string): Promise<Album[]> {
 		response.json()
 	)
 
-	return result.topalbums.album
+	if (result.topalbums && result.topalbums.album) {
+		return result.topalbums.album
+	} else {
+		return []
+	}
 }

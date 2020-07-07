@@ -19,14 +19,16 @@ const AlbumInfo: React.FC<Props> = ({ album }) => {
 	if (album.name !== NULL_ALBUM) {
 		return (
 			<Row>
-				{image && image["#text"] ? (
-					<img
-						src={sanitizeUrl(image["#text"])}
-						alt={`${album.name} album cover`}
-					/>
-				) : (
-					<Slash />
-				)}
+				<ImageContainer>
+					{image && image["#text"] ? (
+						<img
+							src={sanitizeUrl(image["#text"])}
+							alt={`${album.name} album cover`}
+						/>
+					) : (
+						<Slash />
+					)}
+				</ImageContainer>
 				<h4>{album.name}</h4>
 			</Row>
 		)
@@ -35,11 +37,17 @@ const AlbumInfo: React.FC<Props> = ({ album }) => {
 }
 
 const Row = styled.li`
+	align-items: center;
 	display: flex;
 	margin-bottom: 1rem;
 
 	h4 {
 		margin-left: 1rem;
 	}
+`
+
+const ImageContainer = styled.div`
+	height: 64px;
+	width: 64px;
 `
 export default AlbumInfo

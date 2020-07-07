@@ -21,6 +21,10 @@ const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 	const { favorites, handleSelection } = useContext(FavoritesContext)
 
 	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
+	useEffect(() => {
 		fetchArtistDetails(artist.mbid).then(details =>
 			setArtistDetails(details)
 		)
@@ -88,10 +92,19 @@ const Container = styled.div`
 
 const SubNav = styled.div`
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 
-	span {
-		margin-left: 0.25rem;
+	button {
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: 769px) {
+		flex-direction: row;
+		justify-content: space-between;
+
+		span {
+			margin-left: 0.25rem;
+		}
 	}
 `
 const YellowStar = styled(Star)`

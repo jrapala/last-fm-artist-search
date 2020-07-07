@@ -39,7 +39,7 @@ const Form = styled.form`
 
 	input {
 		border-radius: ${(props): string => props.theme.panelBorderRadius};
-		padding: 0.5rem;
+		padding: 0.75rem;
 		margin-top: 1rem;
 		width: 100%;
 	}
@@ -60,7 +60,7 @@ const Form = styled.form`
 
 		input {
 			border-radius: ${(props): string => props.theme.panelBorderRadius};
-			padding: 0.5rem;
+			padding: 0.75rem;
 			margin: 0 1rem 0 0;
 		}
 

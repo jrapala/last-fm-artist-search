@@ -46,6 +46,7 @@ export const StyledBaseButton = styled.button`
 	justify-content: center;
 
 	&:disabled {
+		cursor: not-allowed;
 		opacity: 0.5;
 	}
 `

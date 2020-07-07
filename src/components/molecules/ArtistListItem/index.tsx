@@ -12,11 +12,13 @@ interface Props {
 
 const ArtistListItem: React.FC<Props> = ({ artist, handleClick, variant }) => {
 	const label = variant === "select" ? "Select" : "Remove"
+	console.log(artist)
 	return (
 		<Item>
-			<span>{artist.name}</span>
+			<Name>{artist.name}</Name>
 			<ButtonContainer>
 				<Button
+					disabled={!artist.mbid}
 					variant="secondary"
 					onClick={(): void => handleClick(artist)}
 				>
@@ -35,8 +37,13 @@ const Item = styled.li`
 	padding: 1rem 0;
 `
 
+const Name = styled.span`
+	margin-right: 1rem;
+	word-break: break-all;
+`
+
 const ButtonContainer = styled.div`
 	display: flex;
-	width: 100px;
+	min-width: 100px;
 `
 export default ArtistListItem
