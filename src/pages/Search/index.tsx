@@ -6,12 +6,8 @@ import ArtistSearchBar from "../../components/organisms/ArtistSearchBar"
 import SearchResults from "../../components/organisms/SearchResults"
 import ArtistInfo from "../../components/organisms/ArtistInfo"
 
-import { MOCK_ARTIST_RESULTS } from "../../constants"
-
 const SearchPage: React.FC = () => {
-	const [searchResults, setSearchResults] = useState<Artist[]>(
-		MOCK_ARTIST_RESULTS
-	)
+	const [searchResults, setSearchResults] = useState<Artist[]>([])
 	const [selectedArtist, setSelectedArtist] = useState<Artist | null>()
 
 	const handleArtistSelect = (artist: Artist | null): void => {

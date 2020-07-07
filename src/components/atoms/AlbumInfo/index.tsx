@@ -19,7 +19,10 @@ const AlbumInfo: React.FC<Props> = ({ album }) => {
 		return (
 			<Row>
 				{image && image["#text"] && (
-					<img src={sanitizeUrl(image["#text"])} />
+					<img
+						src={sanitizeUrl(image["#text"])}
+						alt={`${album.name} album cover`}
+					/>
 				)}
 				<h4>{album.name}</h4>
 			</Row>
