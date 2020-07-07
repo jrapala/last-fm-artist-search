@@ -72,6 +72,7 @@ const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 }
 
 const Container = styled.div`
+	margin: 2rem 0;
 	width: 60vw;
 
 	h2 {

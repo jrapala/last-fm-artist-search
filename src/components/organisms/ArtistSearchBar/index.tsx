@@ -1,34 +1,24 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 
 import Button from "../../atoms/Button"
-import { searchArtists } from "../../../utils/api"
-import { Artist } from "../../../types/artist"
-
 interface Props {
-	setSearchResults: React.Dispatch<React.SetStateAction<Artist[]>>
+	handleChangeQuery: (e: React.ChangeEvent<HTMLInputElement>) => void
+	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+	query: string
 }
 
-const ArtistSearchBar: React.FC<Props> = ({ setSearchResults }) => {
-	const [query, setQuery] = useState("")
-
-	const handleChangeQuery = (
-		e: React.ChangeEvent<HTMLInputElement>
-	): void => {
-		setQuery(e.target.value)
-	}
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-		e.preventDefault()
-		searchArtists(query).then(results => {
-			setSearchResults(results)
-		})
-	}
+const ArtistSearchBar: React.FC<Props> = ({
+	handleSubmit,
+	handleChangeQuery,
+	query,
+}) => {
 	return (
 		<Form onSubmit={handleSubmit}>
 			<label>Search for an Artist:</label>
 			<input name="query" value={query} onChange={handleChangeQuery} />
 			<ButtonContainer>
-				<Button type="submit" disabled={query.length < 1}>
+				<Button type="submit" disabled={query.trim().length < 1}>
 					Search
 				</Button>
 			</ButtonContainer>
