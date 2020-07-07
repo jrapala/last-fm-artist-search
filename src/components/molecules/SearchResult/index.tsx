@@ -6,14 +6,20 @@ import Button from "../../atoms/Button"
 
 interface Props {
 	artist: Artist
+	handleArtistSelect: (artist: Artist) => void
 }
 
-const SearchResult: React.FC<Props> = ({ artist }) => {
+const SearchResult: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 	return (
 		<Item>
 			<span>{artist.name}</span>
 			<ButtonContainer>
-				<Button variant="secondary">Select</Button>
+				<Button
+					variant="secondary"
+					onClick={(): void => handleArtistSelect(artist)}
+				>
+					Select
+				</Button>
 			</ButtonContainer>
 		</Item>
 	)

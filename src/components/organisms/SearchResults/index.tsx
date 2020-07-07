@@ -6,10 +6,11 @@ import Panel from "../../atoms/Panel"
 import SearchResult from "../../molecules/SearchResult"
 
 interface Props {
+	handleArtistSelect: (artist: Artist) => void
 	results: Artist[]
 }
 
-const SearchResults: React.FC<Props> = ({ results }) => {
+const SearchResults: React.FC<Props> = ({ handleArtistSelect, results }) => {
 	if (results.length) {
 		return (
 			<Container>
@@ -19,6 +20,7 @@ const SearchResults: React.FC<Props> = ({ results }) => {
 						{results.map(artist => (
 							<SearchResult
 								artist={artist}
+								handleArtistSelect={handleArtistSelect}
 								key={`${artist.name}-${artist.mbid}`}
 							/>
 						))}
