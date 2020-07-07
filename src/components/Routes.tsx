@@ -7,6 +7,7 @@ import { SessionContext } from "./SessionProvider"
 import LoginPage from "../pages/Login"
 import AuthCallbackPage from "../pages/AuthCallbackPage"
 import SearchPage from "../pages/Search"
+import FavoritesPage from "../pages/Favorites"
 
 const publicRoutes = [
 	{
@@ -30,6 +31,11 @@ const privateRoutes = [
 		component: SearchPage,
 		exact: true,
 		path: ROUTES.SEARCH,
+	},
+	{
+		component: FavoritesPage,
+		exact: true,
+		path: ROUTES.FAVORITES,
 	},
 	{
 		component: (): JSX.Element => <Redirect to="/search" />,

@@ -11,7 +11,9 @@ interface Props {
 
 const AlbumInfo: React.FC<Props> = ({ album }) => {
 	const image =
-		album.image && album.image.find(image => image.size === "medium")
+		album.image && Array.isArray(album.image)
+			? album.image.find(image => image.size === "medium")
+			: album.image
 
 	if (album.name !== NULL_ALBUM) {
 		return (

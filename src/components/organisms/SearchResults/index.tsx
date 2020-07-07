@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import { Artist } from "../../../types/artist"
 import Panel from "../../atoms/Panel"
-import SearchResult from "../../molecules/SearchResult"
+import ArtistListItem from "../../molecules/ArtistListItem"
 
 interface Props {
 	handleArtistSelect: (artist: Artist) => void
@@ -18,10 +18,11 @@ const SearchResults: React.FC<Props> = ({ handleArtistSelect, results }) => {
 				<Panel>
 					<List>
 						{results.map(artist => (
-							<SearchResult
+							<ArtistListItem
 								artist={artist}
-								handleArtistSelect={handleArtistSelect}
+								handleClick={handleArtistSelect}
 								key={`${artist.name}-${artist.mbid}`}
+								variant="select"
 							/>
 						))}
 					</List>

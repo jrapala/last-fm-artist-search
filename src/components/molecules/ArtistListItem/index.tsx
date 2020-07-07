@@ -6,19 +6,21 @@ import Button from "../../atoms/Button"
 
 interface Props {
 	artist: Artist
-	handleArtistSelect: (artist: Artist) => void
+	handleClick: (artist: Artist) => void
+	variant: "select" | "remove"
 }
 
-const SearchResult: React.FC<Props> = ({ artist, handleArtistSelect }) => {
+const ArtistListItem: React.FC<Props> = ({ artist, handleClick, variant }) => {
+	const label = variant === "select" ? "Select" : "Remove"
 	return (
 		<Item>
 			<span>{artist.name}</span>
 			<ButtonContainer>
 				<Button
 					variant="secondary"
-					onClick={(): void => handleArtistSelect(artist)}
+					onClick={(): void => handleClick(artist)}
 				>
-					Select
+					{label}
 				</Button>
 			</ButtonContainer>
 		</Item>
@@ -37,4 +39,4 @@ const ButtonContainer = styled.div`
 	display: flex;
 	width: 100px;
 `
-export default SearchResult
+export default ArtistListItem
