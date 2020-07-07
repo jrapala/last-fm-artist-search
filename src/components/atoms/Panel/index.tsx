@@ -12,7 +12,7 @@ const Container = styled.div`
 	box-shadow: ${(props): string => props.theme.panelBoxShadow};
 	display: flex;
 	flex-direction: column;
-	padding: 2rem;
+	padding: 1rem;
 `
 
 export default Panel

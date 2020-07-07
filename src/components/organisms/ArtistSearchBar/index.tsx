@@ -27,9 +27,11 @@ const ArtistSearchBar: React.FC<Props> = ({ setSearchResults }) => {
 		<Form onSubmit={handleSubmit}>
 			<label>Search for an Artist:</label>
 			<input name="query" value={query} onChange={handleChangeQuery} />
-			<Button type="submit" disabled={query.length < 1}>
-				Search
-			</Button>
+			<ButtonContainer>
+				<Button type="submit" disabled={query.length < 1}>
+					Search
+				</Button>
+			</ButtonContainer>
 		</Form>
 	)
 }
@@ -39,6 +41,7 @@ const Form = styled.form`
 	display: flex;
 	flex-direction: column;
 	margin: 2rem 0;
+	width: 60vw;
 
 	label {
 		font-size: ${(props): string => props.theme.typeScale.h3};
@@ -48,6 +51,7 @@ const Form = styled.form`
 		border-radius: ${(props): string => props.theme.panelBorderRadius};
 		padding: 0.5rem;
 		margin-top: 1rem;
+		width: 100%;
 	}
 
 	button {
@@ -56,23 +60,32 @@ const Form = styled.form`
 
 	@media (min-width: 769px) {
 		flex-direction: row;
+		justify-content: space-between;
+
 		label {
-			flex-shrink: 0;
 			font-size: ${(props): string => props.theme.typeScale.h3};
+			margin: 0 1rem 0 0;
+			flex-shrink: 0;
 		}
 
 		input {
 			border-radius: ${(props): string => props.theme.panelBorderRadius};
-			flex: 2;
 			padding: 0.5rem;
-			margin-left: 1.5rem;
-			margin-top: 0;
+			margin: 0 1rem 0 0;
 		}
 
 		button {
-			margin-left: 1.5rem;
 			margin-top: 0;
+			min-width: 100px;
 		}
+	}
+`
+
+const ButtonContainer = styled.div`
+	width: 100%;
+
+	@media (min-width: 769px) {
+		width: auto;
 	}
 `
 

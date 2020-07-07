@@ -3,7 +3,7 @@ import { neutral, orange, yellow } from "./colors"
 import { fontWeight, typeScale } from "./typography"
 
 export const lightTheme: DefaultTheme = {
-	borderColor: neutral[200],
+	borderColor: neutral[300],
 	buttonBorderRadius: "40px",
 	fontWeight: fontWeight,
 	panelBorderRadius: "8px",

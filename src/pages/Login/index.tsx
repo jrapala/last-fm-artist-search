@@ -40,6 +40,10 @@ const Content = styled.div`
 	align-items: center;
 	display: flex;
 	flex: 1;
+
+	div:first-child {
+		padding: 2rem;
+	}
 `
 
 const ButtonContainer = styled.div`
