@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { sanitizeUrl } from "@braintree/sanitize-url"
 
+import { ReactComponent as Slash } from "../../../assets/slash.svg"
 import { Album } from "../../../types/album"
 import { NULL_ALBUM } from "../../../constants"
 
@@ -18,11 +19,13 @@ const AlbumInfo: React.FC<Props> = ({ album }) => {
 	if (album.name !== NULL_ALBUM) {
 		return (
 			<Row>
-				{image && image["#text"] && (
+				{image && image["#text"] ? (
 					<img
 						src={sanitizeUrl(image["#text"])}
 						alt={`${album.name} album cover`}
 					/>
+				) : (
+					<Slash />
 				)}
 				<h4>{album.name}</h4>
 			</Row>

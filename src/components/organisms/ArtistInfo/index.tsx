@@ -3,10 +3,10 @@ import styled from "styled-components"
 import { ArrowLeft, Star } from "react-feather"
 import DOMPurify from "dompurify"
 
-import { fetchArtistDetails } from "../../../utils/api"
+import { fetchArtistDetails, fetchArtistTopAlbums } from "../../../utils/api"
 import { FavoritesContext } from "../../FavoritesProvider"
-import { MOCK_TOP_ALBUMS } from "../../../constants"
 import { Artist, ArtistDetails } from "../../../types/artist"
+import { Album } from "../../../types/album"
 import BaseButton from "../../atoms/BaseButton"
 import TopAlbums from "../../molecules/TopAlbums"
 
@@ -14,13 +14,19 @@ interface Props {
 	artist: Artist
 	handleArtistSelect: (artist: Artist | null) => void
 }
+
 const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 	const [artistDetails, setArtistDetails] = useState<ArtistDetails>()
+	const [artistTopAlbums, setArtistTopAlbums] = useState<Album[]>()
 	const { favorites, handleSelection } = useContext(FavoritesContext)
 
 	useEffect(() => {
 		fetchArtistDetails(artist.mbid).then(details =>
 			setArtistDetails(details)
+		)
+
+		fetchArtistTopAlbums(artist.mbid).then(albums =>
+			setArtistTopAlbums(albums)
 		)
 	}, [artist.mbid])
 
@@ -58,7 +64,7 @@ const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 						}}
 					></p>
 				)}
-				<TopAlbums albums={MOCK_TOP_ALBUMS} />
+				{artistTopAlbums && <TopAlbums albums={artistTopAlbums} />}
 			</Container>
 		)
 	}
