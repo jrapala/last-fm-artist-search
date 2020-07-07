@@ -38,9 +38,12 @@ const BaseButton = React.forwardRef<HTMLButtonElement, Props>(
 )
 
 export const StyledBaseButton = styled.button`
+	align-items: center;
 	background: transparent;
 	border: none;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
 
 	&:disabled {
 		opacity: 0.5;

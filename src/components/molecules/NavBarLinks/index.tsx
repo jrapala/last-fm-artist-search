@@ -10,7 +10,6 @@ interface Props {
 }
 
 const NavBarLinks: React.FC<Props> = ({ direction = "row" }) => {
-	console.log(direction)
 	return (
 		<NavLinks direction={direction}>
 			<li>
