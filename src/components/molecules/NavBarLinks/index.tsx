@@ -1,15 +1,27 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled, { css, FlattenSimpleInterpolation } from "styled-components"
+import { useHistory } from "react-router"
 
 import { ROUTES } from "../../../constants"
 import NavBarLink from "../../atoms/NavBarLink"
 import NavBarButton from "../../atoms/NavBarButton"
+import { clearLocalStorageAuth } from "../../../utils/auth"
+import { SessionContext } from "../../SessionProvider"
 
 interface Props {
 	direction?: "column" | "row"
 }
 
 const NavBarLinks: React.FC<Props> = ({ direction = "row" }) => {
+	const history = useHistory()
+	const { setIsLoggedIn } = useContext(SessionContext)
+
+	const handleLogOut = (): void => {
+		clearLocalStorageAuth()
+		setIsLoggedIn(false)
+		history.push("/")
+	}
+
 	return (
 		<NavLinks direction={direction}>
 			<li>
@@ -19,7 +31,7 @@ const NavBarLinks: React.FC<Props> = ({ direction = "row" }) => {
 				<NavBarLink route={ROUTES.FAVORITES}>Favorites</NavBarLink>
 			</li>
 			<li>
-				<NavBarButton>Log Out</NavBarButton>
+				<NavBarButton onClick={handleLogOut}>Log Out</NavBarButton>
 			</li>
 		</NavLinks>
 	)

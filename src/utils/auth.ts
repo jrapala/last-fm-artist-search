@@ -11,3 +11,8 @@ export const isAccessTokenValid = (): boolean => {
 	const now = new Date()
 	return now.toISOString() < expirationDate
 }
+
+export const clearLocalStorageAuth = (): void => {
+	localStorage.removeItem(ACCESS_TOKEN_KEY)
+	localStorage.removeItem(ACCESS_TOKEN_EXPIRATION)
+}
