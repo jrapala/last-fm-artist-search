@@ -9,6 +9,7 @@ import { Artist, ArtistDetails } from "../../../types/artist"
 import { Album } from "../../../types/album"
 import BaseButton from "../../atoms/BaseButton"
 import TopAlbums from "../../molecules/TopAlbums"
+import PageLoader from "../../molecules/PageLoader"
 
 interface Props {
 	artist: Artist
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
+	const [isLoading, setIsLoading] = useState(false)
 	const [artistDetails, setArtistDetails] = useState<ArtistDetails>()
 	const [artistTopAlbums, setArtistTopAlbums] = useState<Album[]>()
 	const { favorites, handleSelection } = useContext(FavoritesContext)
@@ -25,14 +27,16 @@ const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 	}, [])
 
 	useEffect(() => {
-		fetchArtistDetails(artist.mbid).then(details =>
-			setArtistDetails(details)
-		)
+		Promise.all([
+			fetchArtistDetails(artist.mbid).then(details =>
+				setArtistDetails(details)
+			),
 
-		fetchArtistTopAlbums(artist.mbid).then(albums =>
-			setArtistTopAlbums(albums)
-		)
-	}, [artist.mbid])
+			fetchArtistTopAlbums(artist.mbid).then(albums =>
+				setArtistTopAlbums(albums)
+			),
+		]).then(() => setIsLoading(false))
+	}, [artist.mbid, setIsLoading])
 
 	const handleStarPress = (): void => {
 		handleSelection(artist)
@@ -40,6 +44,10 @@ const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 
 	const isFavorited =
 		favorites.map(artist => artist.mbid).indexOf(artist.mbid) >= 0
+
+	if (isLoading) {
+		return <PageLoader />
+	}
 
 	if (artistDetails) {
 		return (
