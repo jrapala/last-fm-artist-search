@@ -15,7 +15,7 @@ const ArtistSearchBar: React.FC<Props> = ({
 }) => {
 	return (
 		<Form onSubmit={handleSubmit}>
-			<label>Search for an Artist:</label>
+			<label htmlFor="query">Search for an Artist:</label>
 			<input name="query" value={query} onChange={handleChangeQuery} />
 			<ButtonContainer>
 				<Button type="submit" disabled={query.trim().length < 1}>

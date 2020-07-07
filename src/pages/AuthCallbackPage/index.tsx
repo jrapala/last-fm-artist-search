@@ -15,20 +15,19 @@ const AuthCallbackPage: React.FC = () => {
 	useEffect(() => {
 		const now = new Date()
 		const expirationDate = new Date(now.getTime() + 3600000)
+		const urlParams = new URLSearchParams(window.location.search)
+		const token = urlParams.get("token")
 
-		try {
-			const urlParams = new URLSearchParams(window.location.search)
-			const token = urlParams.get("token")
-			localStorage.setItem(ACCESS_TOKEN_KEY, token || "")
+		if (token) {
+			localStorage.setItem(ACCESS_TOKEN_KEY, token)
 			localStorage.setItem(
 				ACCESS_TOKEN_EXPIRATION,
 				expirationDate.toISOString()
 			)
 			setIsLoggedIn(true)
 			history.push("/search")
-			return
-		} catch (error) {
-			console.error(error)
+		} else {
+			history.push("/")
 		}
 	}, [history, setIsLoggedIn])
 

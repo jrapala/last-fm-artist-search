@@ -21,7 +21,7 @@ export interface ArtistDetails {
 	ontour?: string
 	stats?: ArtistStats | ArtistStats[]
 	similar?: SimilarArtists | SimilarArtists[]
-	tags?: Tags | Tags[]
+	tags?: { tag: Tag | Tag[] }
 	bio: Bio
 }
 
@@ -36,9 +36,9 @@ interface SimilarArtists {
 	image?: ArtistImage | ArtistImage[]
 }
 
-interface Tags {
-	tag?: Tag | Tag[]
-}
+// interface Tags {
+// 	tag?: Tag | Tag[]
+// }
 
 interface Tag {
 	name?: string
@@ -46,7 +46,7 @@ interface Tag {
 }
 
 interface Bio {
-	links?: Link | Link[]
+	links?: { link: Link | Link[] }
 	published?: string
 	summary?: string
 	content?: string
