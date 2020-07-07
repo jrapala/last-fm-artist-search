@@ -5,13 +5,15 @@ import Layout from "../../components/organisms/Layout"
 import ArtistSearchBar from "../../components/organisms/ArtistSearchBar"
 import SearchResults from "../../components/organisms/SearchResults"
 
+import { MOCK_ARTIST_RESULTS } from "../../constants"
+
 const SearchPage: React.FC = () => {
 	const [searchResults, setSearchResults] = useState<Artist[]>([])
 
 	return (
 		<Layout>
 			<ArtistSearchBar setSearchResults={setSearchResults} />
-			<SearchResults results={searchResults} />
+			<SearchResults results={MOCK_ARTIST_RESULTS} />
 		</Layout>
 	)
 }
