@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 
 import Layout from "../../components/organisms/Layout"
 import Panel from "../../components/atoms/Panel"
 import ArtistListItem from "../../components/molecules/ArtistListItem"
-import { MOCK_ARTIST_RESULTS } from "../../constants"
+import { FavoritesContext } from "../../components/FavoritesProvider"
 
 const FavoritesPage: React.FC = () => {
-	const handleArtistRemove = (): void => {}
-	const favorites = MOCK_ARTIST_RESULTS
+	const { favorites, handleSelection } = useContext(FavoritesContext)
+
 	return (
 		<Layout>
 			<Container>
@@ -19,7 +19,7 @@ const FavoritesPage: React.FC = () => {
 							{favorites.map(artist => (
 								<ArtistListItem
 									artist={artist}
-									handleClick={handleArtistRemove}
+									handleClick={handleSelection}
 									key={`${artist.name}-${artist.mbid}`}
 									variant="remove"
 								/>

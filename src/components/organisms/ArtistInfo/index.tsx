@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { ArrowLeft, Star } from "react-feather"
 import DOMPurify from "dompurify"
 
+import { FavoritesContext } from "../../FavoritesProvider"
 import { MOCK_TOP_ALBUMS, MOCK_ARTIST_INFO } from "../../../constants"
 import { Artist } from "../../../types/artist"
 import BaseButton from "../../atoms/BaseButton"
@@ -13,7 +14,20 @@ interface Props {
 	handleArtistSelect: (artist: Artist | null) => void
 }
 
+interface IconProps {
+	isFavorited: boolean
+}
+
 const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
+	const { favorites, handleSelection } = useContext(FavoritesContext)
+
+	const handleStarPress = (): void => {
+		handleSelection(artist)
+	}
+
+	const isFavorited =
+		favorites.map(artist => artist.mbid).indexOf(artist.mbid) >= 0
+
 	return (
 		<Container>
 			<SubNav>
@@ -21,9 +35,13 @@ const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 					<ArrowLeft />
 					<span>Go Back to Results</span>
 				</BaseButton>
-				<BaseButton>
-					<Star />
-					<span>Add to Favorites</span>
+				<BaseButton onClick={handleStarPress}>
+					<StyledStar isFavorited={isFavorited} />
+					<span>
+						{isFavorited
+							? "Remove from Favorites"
+							: "Add to Favorites"}
+					</span>
 				</BaseButton>
 			</SubNav>
 			<h2>{MOCK_ARTIST_INFO.name}</h2>
@@ -59,13 +77,12 @@ const SubNav = styled.div`
 		margin-left: 0.25rem;
 	}
 `
-
-const Row = styled.li`
-	display: flex;
-	margin-bottom: 1rem;
-
-	h4 {
-		margin-left: 1rem;
-	}
+const StyledStar = styled(Star)<IconProps>`
+	fill: ${(props): string =>
+		props.isFavorited ? props.theme.starColor : "none"};
+	stroke: ${(props): string =>
+		props.isFavorited
+			? props.theme.starColor
+			: props.theme.textColorOnBackgroundColor};
 `
 export default ArtistInfo
