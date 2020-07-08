@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, Fragment } from "react"
 import styled from "styled-components"
 
 import Layout from "../../components/organisms/Layout"
@@ -12,20 +12,22 @@ const FavoritesPage: React.FC = () => {
 	return (
 		<Layout>
 			<Container>
-				<H3>Favorite Artists:</H3>
 				{favorites.length ? (
-					<Panel>
-						<List>
-							{favorites.map(artist => (
-								<ArtistListItem
-									artist={artist}
-									handleClick={handleSelection}
-									key={`${artist.name}-${artist.mbid}`}
-									variant="remove"
-								/>
-							))}
-						</List>
-					</Panel>
+					<Fragment>
+						<H3>Favorite Artists:</H3>
+						<Panel>
+							<List>
+								{favorites.map(artist => (
+									<ArtistListItem
+										artist={artist}
+										handleClick={handleSelection}
+										key={`${artist.name}-${artist.mbid}`}
+										variant="remove"
+									/>
+								))}
+							</List>
+						</Panel>
+					</Fragment>
 				) : (
 					<NoResults>
 						<h3>No favorites artists.</h3>
@@ -41,7 +43,11 @@ const FavoritesPage: React.FC = () => {
 }
 
 const Container = styled.div`
-	width: 60vw;
+	width: 80vw;
+
+	@media (min-width: 769px) {
+		width: 60vw;
+	}
 `
 const List = styled.ul`
 	margin: 0 auto;

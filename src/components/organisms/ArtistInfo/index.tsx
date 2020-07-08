@@ -85,7 +85,7 @@ const ArtistInfo: React.FC<Props> = ({ artist, handleArtistSelect }) => {
 
 const Container = styled.div`
 	margin: 2rem 0;
-	width: 60vw;
+	width: 80vw;
 
 	h2 {
 		text-align: center;
@@ -95,6 +95,10 @@ const Container = styled.div`
 	h3,
 	h4 {
 		font-weight: ${(props): number => props.theme.fontWeight.bold};
+	}
+
+	@media (min-width: 769px) {
+		width: 60vw;
 	}
 `
 

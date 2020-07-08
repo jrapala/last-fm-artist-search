@@ -45,7 +45,6 @@ export const StyledButton = styled(BaseButton)<ButtonProps>`
 		props.variant === "primary"
 			? props.theme.textColorOnSecondaryColor
 			: props.theme.textColorOnBackgroundColor};
-	font-size: 1.125rem;
 	font-weight: ${(props): number => props.theme.fontWeight.bold};
 	padding: 0.75rem;
 	text-transform: uppercase;

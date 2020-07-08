@@ -78,6 +78,8 @@ This app also uses an authentication flow, so you will need a [last.fm](https://
 -   [x] Profile page
 -   [x] Projects page
 -   [x] Favorites page
--   [x] Tests
--   [ ] More tests!
+-   [x] Unit and integration Tests
+-   [ ] More unit and integration tests!
+-   [ ] End-to-end testing suite
+-   [ ] Improve mobile styles
 -   [ ] Storybook intergration

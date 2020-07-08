@@ -86,7 +86,8 @@ const NavLinks = styled.ul<Props>`
 	${(props): false | FlattenSimpleInterpolation =>
 		props.direction === "column" &&
 		css`
-			height: 50vh;
+			height: 100vh;
+			padding-left: 0;
 			text-align: center;
 
 			& a {

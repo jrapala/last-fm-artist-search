@@ -12,7 +12,7 @@ interface Props {
 
 const ArtistListItem: React.FC<Props> = ({ artist, handleClick, variant }) => {
 	const label = variant === "select" ? "Select" : "Remove"
-	console.log(artist)
+
 	return (
 		<Item>
 			<Name>{artist.name}</Name>
@@ -44,6 +44,10 @@ const Name = styled.span`
 
 const ButtonContainer = styled.div`
 	display: flex;
-	min-width: 100px;
+	min-width: 80px;
+
+	@media (min-width: 769px) {
+		min-width: 100px;
+	}
 `
 export default ArtistListItem
