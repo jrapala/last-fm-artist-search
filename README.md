@@ -1,5 +1,7 @@
 # last.fm Artist Search
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c26f72ae-b690-4947-b7d5-6821e661b408/deploy-status)](https://app.netlify.com/sites/last-fm-artist-search/deploys)
+
 A responsive web app that lets you search for an artist, see a short biography and list of top albums, and gives you the option to save the artist to a list of your favorite artists. This app uses the [last.fm API](https://www.last.fm/api).
 
 Note, there are no database connections. Any artists you save to your list of favorites will only persist over the course of your session. 😊
