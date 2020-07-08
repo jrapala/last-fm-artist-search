@@ -31,7 +31,7 @@ const Form = styled.form`
 	display: flex;
 	flex-direction: column;
 	margin: 2rem 0;
-	width: 60vw;
+	width: 80vw;
 
 	label {
 		font-size: ${(props): string => props.theme.typeScale.h3};
@@ -51,6 +51,7 @@ const Form = styled.form`
 	@media (min-width: 769px) {
 		flex-direction: row;
 		justify-content: space-between;
+		width: 60vw;
 
 		label {
 			font-size: ${(props): string => props.theme.typeScale.h3};

@@ -34,7 +34,11 @@ const SearchResults: React.FC<Props> = ({ handleArtistSelect, results }) => {
 }
 
 const Container = styled.div`
-	width: 60vw;
+	width: 80vw;
+
+	@media (min-width: 769px) {
+		width: 60vw;
+	}
 `
 const List = styled.ul`
 	margin: 0 auto;
