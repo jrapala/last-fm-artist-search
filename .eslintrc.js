@@ -8,6 +8,7 @@ module.exports = {
 		"plugin:jest/recommended",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended",
 		"prettier/react",
 	],
 	parser: "@typescript-eslint/parser",
@@ -16,6 +17,7 @@ module.exports = {
 		"better-styled-components",
 		"import",
 		"prettier",
+		"jsx-a11y",
 	],
 	rules: {
 		quotes: [1, "double", { allowTemplateLiterals: true }],
@@ -46,4 +48,9 @@ module.exports = {
 			},
 		},
 	],
+	settings: {
+		react: {
+			version: "detect",
+		},
+	},
 }
