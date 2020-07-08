@@ -12,13 +12,21 @@ This app also uses an authentication flow, so you will need a [last.fm](https://
 
 ## 📸 Screenshots
 
-<img src="./docs/01-login.png" alt="Artist Finder Log In" />
+| ![Artist Finder Log In"](./docs/01-login.png) |
+| :-------------------------------------------: |
+|                 _Login View_                  |
 
-<img src="./docs/02-search.png" alt="Artist Finder Search" />
+| ![Artist Finder Search"](./docs/02-search.png) |
+| :--------------------------------------------: |
+|                 _Search View_                  |
 
-<img src="./docs/03-artist-info.png" alt="Artist Finder Artist Info" />
+| ![Artist Finder Artist Info"](./docs/03-artist-info.png) |
+| :------------------------------------------------------: |
+|                    _Artist Info View_                    |
 
-<img src="./docs/04-favorites.png" alt="Artist Finder Favorites" />
+| ![Artist Finder Favorite Artists"](./docs/04-favorites.png) |
+| :---------------------------------------------------------: |
+|                   _Favorite Artists View_                   |
 
 ## 📄 Docs
 
