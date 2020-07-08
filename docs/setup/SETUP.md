@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## 🚀 Setup
 
-1. Clone the project with `git clone https://github.com/mmgolden/teams-app.git`
+1. Clone the project with `git clone https://github.com/jrapala/last-fm-artist-search.git`
 2. Copy `.env.example` to `.env`
 3. Obtain an API key from [last.fm](https://www.last.fm/api/). Use your key as your `REACT_APP_API_KEY` value in `.env`.
 4. Ensure node version matches `.node-version` (see [nodenv](https://github.com/nodenv/nodenv))
