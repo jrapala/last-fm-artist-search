@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import { ThemeProvider } from "styled-components"
+import { BrowserRouter as Router } from "react-router-dom"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { GlobalStyle, lightTheme } from "./styles"
+import Routes from "./components/Routes"
+import AuthProvider from "./components/AuthProvider"
+import { FavoritesProvider } from "./components/FavoritesProvider"
+
+const App: React.FC = () => {
+	const [theme] = useState(lightTheme)
+
+	return (
+		<ThemeProvider theme={theme}>
+			<Router>
+				<AuthProvider>
+					<FavoritesProvider>
+						<Routes />
+					</FavoritesProvider>
+				</AuthProvider>
+			</Router>
+			<GlobalStyle />
+		</ThemeProvider>
+	)
 }
 
-export default App;
+export default App
