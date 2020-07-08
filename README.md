@@ -1,4 +1,4 @@
-# last.fm Artist Search
+# 🎧 last.fm Artist Search
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c26f72ae-b690-4947-b7d5-6821e661b408/deploy-status)](https://app.netlify.com/sites/last-fm-artist-search/deploys)
 
@@ -8,7 +8,7 @@ Note, there are no database connections. Any artists you save to your list of fa
 
 This app also uses an authentication flow, so you will need a [last.fm](https://www.last.fm/) account in order to proceed. Authentication is not actually needed to use the last.fm API, however, it was a requirement for this project.
 
-[Live Demo](https://last-fm-artist-search.netlify.app/)
+⚡️ **[View Live Demo](https://last-fm-artist-search.netlify.app/)** ⚡️
 
 ## 📸 Screenshots
 
